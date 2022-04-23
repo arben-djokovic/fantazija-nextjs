@@ -27,7 +27,7 @@
             cursor: pointer;
             &:hover{
                 opacity: .8;
-            color: rgb(156, 0, 104);
+                color: rgb(200,0,522) !important;
             }
         }
         .linija{
@@ -67,6 +67,9 @@
         .openNav{
             display: block;
             z-index: 100;
+            span{
+                display: flex;
+            }
             .fa{
                 font-size: 30px;
                 &:hover{

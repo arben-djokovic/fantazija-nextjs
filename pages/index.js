@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Card  from './../components/Card';
 import styles from '../styles/Home.module.scss'
-
+import Head from 'next/head'
 export default function Home({kolaci, torte, torteSlika}) {
 
   useEffect(()=>{
@@ -11,6 +11,11 @@ export default function Home({kolaci, torte, torteSlika}) {
   const router = useRouter()
   return (
     <div className={styles.home}>
+      <Head>
+        <title>Fantazija - Tuzi</title>
+        <meta name="description" content={"Fantazija poslasticarnica u Tuzima preko puta osnovne skole Mahmut Lekic"} />
+        <link rel="shortcut icon" href="./logo.png" type="image/x-icon" />
+      </Head>
         <div className={styles.homeSection}>
           <section className={styles.popular}>
             <h1>Popularni Kolaci</h1>

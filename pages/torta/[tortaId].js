@@ -1,5 +1,4 @@
-import React,{useState, useEffect} from 'react'
-import Storage from '../../Storage';
+import React,{useEffect} from 'react'
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
@@ -10,11 +9,10 @@ import styles from '../../styles/Kolac.module.scss'
 
 // import required modules
 import { Pagination, Navigation } from "swiper";
-import { useRouter } from 'next/router';
 import Head from 'next/head';
+import Image from 'next/image'
 
 export default function Torta({torta}) {
-    let router = useRouter()
     useEffect(()=>{
         window.scrollTo(0, 0)
     },[])
@@ -40,11 +38,11 @@ export default function Torta({torta}) {
                     modules={[Pagination, Navigation]}
                     className={styles.mySwiper}
                 >
-                    <SwiperSlide><img className={styles.slikaKolaca} src={torta.slika} alt="Fantazija" /></SwiperSlide>
-                    <SwiperSlide><img className={styles.slikaKolaca} src={torta.slika} alt="Fantazija" /></SwiperSlide>
-                    <SwiperSlide><img className={styles.slikaKolaca} src={torta.slika} alt="Fantazija" /></SwiperSlide>
-                    <SwiperSlide><img className={styles.slikaKolaca} src={torta.slika} alt="Fantazija" /></SwiperSlide>
-                    <SwiperSlide><img className={styles.slikaKolaca} src={torta.slika} alt="Fantazija" /></SwiperSlide>
+                    <SwiperSlide><Image width={260} height={260} className={styles.slikaKolaca} src={torta.slika} alt="Fantazija" /></SwiperSlide>
+                    <SwiperSlide><Image width={260} height={260} className={styles.slikaKolaca} src={torta.slika} alt="Fantazija" /></SwiperSlide>
+                    <SwiperSlide><Image width={260} height={260} className={styles.slikaKolaca} src={torta.slika} alt="Fantazija" /></SwiperSlide>
+                    <SwiperSlide><Image width={260} height={260} className={styles.slikaKolaca} src={torta.slika} alt="Fantazija" /></SwiperSlide>
+                    <SwiperSlide><Image width={260} height={260} className={styles.slikaKolaca} src={torta.slika} alt="Fantazija" /></SwiperSlide>
                 </Swiper>
                 </div>
                 <div className={styles.aboutKolac}>
