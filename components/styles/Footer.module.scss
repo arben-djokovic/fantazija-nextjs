@@ -1,0 +1,48 @@
+.footer{
+    background: url('https://media.bakingo.com/ssr-static/footer.png');
+    height: 600px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: space-around;
+    // align-items: center;
+    section{
+        margin-top: 300px;
+        text-align: center;
+        h2{
+            color: rgb(255,34,137);
+        }
+        img{
+            width: 30vw;
+            min-width: 200px;
+            max-width: 300px;
+            &:hover{
+                opacity: .8;
+                cursor: pointer;
+            }
+        }
+        ul{
+            list-style: none;
+            li{
+                margin: 20px 0;
+                font-size: 18px;
+                text-shadow: 1px 1px 20px rgba(0, 0, 0, 0.596);
+                &:hover{
+                    opacity: .8;
+                    color: rgb(153, 0, 71);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 600px) {
+    .footer{
+        flex-direction: column;
+        height: auto;
+        padding-top: 200px;
+        section{
+            margin: 30px;
+        }
+    }
+}
