@@ -1,15 +1,9 @@
-import React,{useState, useEffect} from 'react'
 import styles from '../../styles/Kolaci.module.scss'
-import Storage from '../../Storage'
 import Card from '../../components/Card'
 import Head from 'next/head';
 
-export default function Kolaci() {
-    let [kolaci, setKolaci] = useState([])
-    useEffect(()=>{
-        window.scrollTo(0, 0)
-        setKolaci(Storage.kolaci)
-    },[])
+export default function Kolaci({data}) {
+
   return (
     <div className={styles.kolaci}>
     <Head>
@@ -19,11 +13,19 @@ export default function Kolaci() {
         <div className={styles.kolaciSection}>
             <h1>Kolaci</h1>
             <div className={styles.lista}>
-              {kolaci.map(kolac => {
+              {data.map(kolac => {
                 return(<Card styles={styles} key={kolac.id} whatIs="kolac" tortaId={kolac.id} tortaSlika={kolac.slika} tortaIme={kolac.ime} tortaKratakOpis={kolac.kratakOpis} tortaCijena={kolac.cijena} />)
               })}
             </div>
         </div>
     </div>
   )
+}
+export async function getStaticProps() {
+  const res = await fetch("http://localhost:3000/api/kolaci")
+  return {
+    props: {
+      data: await res.json()
+    },
+  }
 }

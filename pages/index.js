@@ -2,18 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Card  from './../components/Card';
 import styles from '../styles/Home.module.scss'
-import Storage from '../Storage';
 
-export default function Home() {
-  let [kolaci, setKolaci] = useState([])
-  let [torte, setTorte] = useState([])
-  let [torteSlika, setTorteSlika] = useState([])
+export default function Home({kolaci, torte, torteSlika}) {
 
   useEffect(()=>{
     window.scrollTo(0, 0)
-    setKolaci(Storage.kolaci)
-    setTorte(Storage.torte)
-    setTorteSlika(Storage.tortaSlike)
   },[])
   const router = useRouter()
   return (
@@ -54,4 +47,16 @@ export default function Home() {
         </div>
     </div>
   )
+}
+export async function getStaticProps() {
+  const torte = await fetch("http://localhost:3000/api/torte")
+  const kolaci = await fetch("http://localhost:3000/api/kolaci")
+  const torteSlika = await fetch("http://localhost:3000/api/torteSaSlikom")
+  return {
+    props: {
+      torte: await torte.json(),
+      kolaci: await kolaci.json(),
+      torteSlika: await torteSlika.json(),
+    },
+  }
 }

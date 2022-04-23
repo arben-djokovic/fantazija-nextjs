@@ -26,9 +26,9 @@ export default function Header() {
     }
   return (
     <div className={styles.header}>
-        <img onClick={()=>{router.push('/')}} className={styles.logo} src='./logo.png' alt="Fantazija" />
+        <img onClick={()=>{router.push('/')}} className={styles.logo} src="./logo.png" alt="Fantazija" />
         <ul ref={navigation}>
-            <li className={styles.phone} onClick={()=>{router.push('/');toggleNav()}}><img src='./logo.png' alt="Fantazija" /></li>
+            <li className={styles.phone} onClick={()=>{router.push('/');toggleNav()}}><img src="./logo.png" alt="Fantazija" /></li>
             <li className={styles.linija}>|</li>
             <li onClick={()=>{router.push('/torte');toggleNav()}}>Torte</li>
             <li className={styles.linija}>|</li>

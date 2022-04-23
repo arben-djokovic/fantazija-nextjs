@@ -1,5 +1,4 @@
 import React,{useState, useEffect} from 'react'
-import Storage from '../../Storage';
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
@@ -13,17 +12,10 @@ import { Pagination, Navigation } from "swiper";
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 
-export default function Kolac() {
-    let [kolac, setKolac] = useState({})
+export default function Kolac({kolac}) {
     let router = useRouter()
-    let {kolacId} = router.query
     useEffect(()=>{
         window.scrollTo(0, 0)
-        Storage.kolaci.map(kolac =>{
-            if(kolac.id == kolacId){
-                setKolac(kolac)
-            }
-        })
     },[])
   return (
     <div className={styles.kolac}>
@@ -64,3 +56,26 @@ export default function Kolac() {
     </div>
   )
 }
+export async function getStaticPaths() {
+    // Call an external API endpoint to get posts
+    const res = await fetch('http://localhost:3000/api/kolaci')
+    const posts = await res.json()
+  
+    // Get the paths we want to pre-render based on posts
+    const paths = posts.map((post) => ({
+      params: { kolacId: post.id.toString() },
+    }))
+  
+    // We'll pre-render only these paths at build time.
+    // { fallback: false } means other routes should 404.
+    return { paths, fallback: false }
+  }
+  export async function getStaticProps(constext) {
+    // params contains the post `id`.
+    // If the route is like /posts/1, then params.id is 1
+    const res = await fetch(`http://localhost:3000/api/kolaci/${constext.params.kolacId}`)
+    const kolac = await res.json()
+  
+    // Pass post data to the page via props
+    return { props: { kolac } }
+  }
