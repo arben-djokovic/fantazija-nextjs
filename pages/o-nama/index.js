@@ -3,11 +3,19 @@ import styles from '../../styles/Onama.module.scss'
 import Head from 'next/head';
 import { AiFillInstagram } from '@react-icons/all-files/ai/AiFillInstagram';
 import { AiFillPhone } from '@react-icons/all-files/ai/AiFillPhone';
-export default function Onama() {
+import dynamic from 'next/dynamic'
 
+export default function Onama() {
     useEffect(()=>{
         window.scrollTo(0, 0)
     },[])
+    const Map = dynamic(
+        () => import('../../components/Map/index'), // replace '@components/map' with your component's location
+        { 
+          loading: () => <h4>A map is loading</h4>,
+          ssr: false // This line is important. It's what prevents server-side render
+        }
+      )
   return (
     <div className={styles.onama}>
     <Head>
@@ -17,7 +25,8 @@ export default function Onama() {
         <div className={styles.onamaSection}>
             <h1>O nama</h1>
             <section>
-                <div>
+                <div className={styles.mapSection}>
+                    <Map  />
                 </div>
                 <div className={styles.aboutUs}>
                     <h1>Fantazija</h1>

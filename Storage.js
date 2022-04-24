@@ -12,7 +12,7 @@ export default {
             ime: 'Rafaelo',
             opis: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit adipisci dolor officiis, odit sequi vitae eum amet totam dolores a! Excepturi, nisi odit vel architecto ad iure aperiam ratione beatae.',
             kratakOpis: 'Ukus bourbon vanile',
-            slika: 'https://media.bakingo.com/fruit@2x_1_0.png',
+            slika: 'https://i.pinimg.com/736x/f4/35/62/f43562abc47ba5fad4032b4d6dda352b.jpg',
             cijena: '2',
             id: 1
           },
@@ -20,7 +20,7 @@ export default {
             ime: 'Rafaelo',
             opis: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit adipisci dolor officiis, odit sequi vitae eum amet totam dolores a! Excepturi, nisi odit vel architecto ad iure aperiam ratione beatae.',
             kratakOpis: 'Ukus bourbon vanile',
-            slika: 'https://media.bakingo.com/fruit@2x_1_0.png',
+            slika: 'https://staticstvarukusa.mondo.rs/Thumbnail/43584/png/Italijanske-vanilice-sa-cokoladom.png?ts=2022-03-28T12:24:48',
             cijena: '2',
             id: 2
           },
@@ -35,7 +35,7 @@ export default {
             ime: 'Rafaelo',
             opis: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit adipisci dolor officiis, odit sequi vitae eum amet totam dolores a! Excepturi, nisi odit vel architecto ad iure aperiam ratione beatae.',
             kratakOpis: 'Ukus bourbon vanile',
-            slika: 'https://media.bakingo.com/fruit@2x_1_0.png',
+            slika: 'https://domacirecepti.net/wp-content/uploads/2022/03/cokoladni-kolac-sa-visnjama.jpg',
             cijena: '2',
             id: 4
           },
@@ -59,7 +59,7 @@ export default {
             ime: 'Rafaelo',
             opis: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit adipisci dolor officiis, odit sequi vitae eum amet totam dolores a! Excepturi, nisi odit vel architecto ad iure aperiam ratione beatae.',
             kratakOpis: 'Ukus bourbon vanile',
-            slika: 'https://media.bakingo.com/fruit@2x_1_0.png',
+            slika: 'https://stil.kurir.rs/data/images/2022/03/26/21/274691_posnezerbokocke_sq-s.jpg',
             cijena: '2',
             id: 7
           },
@@ -74,7 +74,7 @@ export default {
             ime: 'Rafaelo',
             opis: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit adipisci dolor officiis, odit sequi vitae eum amet totam dolores a! Excepturi, nisi odit vel architecto ad iure aperiam ratione beatae.',
             kratakOpis: 'Ukus bourbon vanile',
-            slika: 'https://media.bakingo.com/fruit@2x_1_0.png',
+            slika: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj9HchyAy-PQRjnl3EIb3aXEJEGlqDJx4q7g&usqp=CAU',
             cijena: '2',
             id: 9
           },

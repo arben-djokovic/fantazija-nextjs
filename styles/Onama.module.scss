@@ -66,6 +66,11 @@
         }
     }
 }
+.mapSection{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .leaflet-container{
     margin-top: 20px;
     width: 100%;
