@@ -1,9 +1,10 @@
 import styles from '../../styles/Kolaci.module.scss'
 import Card from '../../components/Card'
 import Head from 'next/head';
+import kolaci from '../../data/kolaci'
 
-export default function Kolaci({data}) {
-
+export default function Kolaci() {
+  let data = kolaci
   return (
     <div className={styles.kolaci}>
     <Head>
@@ -21,11 +22,11 @@ export default function Kolaci({data}) {
     </div>
   )
 }
-export async function getStaticProps() {
-  const res = await fetch("http://localhost:3000/api/kolaci")
-  return {
-    props: {
-      data: await res.json()
-    },
-  }
-}
+// export async function getStaticProps() {
+//   const res = await fetch("http://localhost:3000/api/kolaci")
+//   return {
+//     props: {
+//       data: await res.json()
+//     },
+//   }
+// }

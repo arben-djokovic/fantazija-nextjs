@@ -57,7 +57,7 @@ export default function Footer() {
             setOnamaPage(false)
             setHomePage(false)
         }
-    })
+    },[router.pathname])
   return (
     <div className={styles.footer}>
         <section>

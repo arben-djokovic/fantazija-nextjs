@@ -14,6 +14,7 @@ export default function Header() {
     let [kolaciPage, setKolaciPage] = useState(false)
     let [menuPage, setMenuPage] = useState(false)
     let [onamaPage, setOnamaPage] = useState(false)
+
     useEffect(()=>{
         if(window.location.href.includes('torte')){
             setTortePage(true)
@@ -45,7 +46,7 @@ export default function Header() {
             setMenuPage(false)
             setOnamaPage(false)
         }
-    })
+    }, [router.pathname])
     let toggleNav = () => {
         if(window.innerWidth < 601){
             if(headerOpen){

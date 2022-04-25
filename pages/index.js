@@ -3,8 +3,14 @@ import { useRouter } from 'next/router'
 import Card  from './../components/Card';
 import styles from '../styles/Home.module.scss'
 import Head from 'next/head'
-export default function Home({kolaci, torte, torteSlika}) {
+import kolaciData from '../data/kolaci';
+import torteData from '../data/torte';
+import torteSaSlikom from '../data/torteSaSlikom';
 
+export default function Home() {
+  let kolaci = kolaciData
+  let torte = torteData
+  let torteSlika = torteSaSlikom
   useEffect(()=>{
     window.scrollTo(0, 0)
   },[])
@@ -53,15 +59,18 @@ export default function Home({kolaci, torte, torteSlika}) {
     </div>
   )
 }
-export async function getStaticProps() {
-  const torte = await fetch("http://localhost:3000/api/torte")
-  const kolaci = await fetch("http://localhost:3000/api/kolaci")
-  const torteSlika = await fetch("http://localhost:3000/api/torteSaSlikom")
-  return {
-    props: {
-      torte: await torte.json(),
-      kolaci: await kolaci.json(),
-      torteSlika: await torteSlika.json(),
-    },
-  }
-}
+// export async function getStaticProps() {
+//   const torte = await fetch("http://localhost:3000/api/torte")
+//   const kolaci = await fetch("http://localhost:3000/api/kolaci")
+//   const torteSlika = await fetch("http://localhost:3000/api/torteSaSlikom")
+//   return {
+//     props: {
+//       torte: await torte.json(),
+//       kolaci: await kolaci.json(),
+//       torteSlika: await torteSlika.json(),
+//       torte: await torte.json(),
+//       kolaci: await kolaci.json(),
+//       torteSlika: await torteSlika.json(),
+//     },
+//   }
+// }

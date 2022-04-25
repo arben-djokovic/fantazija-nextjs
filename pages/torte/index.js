@@ -1,8 +1,10 @@
 import styles from '../../styles/Kolaci.module.scss'
 import Card from '../../components/Card'
 import Head from 'next/head'
+import torte from './../../data/torte';
 
-export default function Torte({data}) {
+export default function Torte() {
+  let data = torte
   return (
     <div className={styles.kolaci}>
       <Head>
@@ -20,11 +22,11 @@ export default function Torte({data}) {
     </div>
   )
 }
-export async function getStaticProps() {
-  const res = await fetch("http://localhost:3000/api/torte")
-  return {
-    props: {
-      data: await res.json()
-    },
-  }
-}
+// export async function getStaticProps() {
+//   const res = await fetch("http://localhost:3000/api/torte")
+//   return {
+//     props: {
+//       data: await res.json()
+//     },
+//   }
+// }
