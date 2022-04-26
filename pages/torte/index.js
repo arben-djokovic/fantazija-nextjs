@@ -1,10 +1,8 @@
 import styles from '../../styles/Kolaci.module.scss'
 import Card from '../../components/Card'
 import Head from 'next/head'
-import torte from '../../data/torte'
 
-export default function Torte() {
-  let data = torte
+export default function Torte({data}) {
   return (
     <div className={styles.kolaci}>
       <Head>
@@ -22,11 +20,11 @@ export default function Torte() {
     </div>
   )
 }
-// export async function getStaticProps() {
-//   const res = await fetch("http://localhost:3000/api/torte")
-//   return {
-//     props: {
-//       data: await res.json()
-//     },
-//   }
-// }
+export async function getStaticProps() {
+  const res = await fetch("https://fantazija-nextjs-arben-djokovic.vercel.app/api/torte")
+  return {
+    props: {
+      data: await res.json()
+    },
+  }
+}
