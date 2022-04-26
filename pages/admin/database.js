@@ -141,7 +141,7 @@ export default function Database({torte, kolaci, torteSlika}) {
                                 <p>{torta.kratakOpis}</p>
                                 <p>${torta.cijena}</p>
                             </div>
-                            <div onClick={(e) => { deleteKolac(torta.id); e.target.parentElement.style.display = 'none'  }} className={styles.delete}>X</div>
+                            <div onClick={() => { deleteKolac(torta.id) }} className={styles.delete}>X</div>
                         </div>)
                     })}
                     {kolaciSelected && kolaci.map(kolac => {
@@ -152,7 +152,7 @@ export default function Database({torte, kolaci, torteSlika}) {
                                 <p>{kolac.kratakOpis}</p>
                                 <p>${kolac.cijena}</p>
                             </div>
-                            <div onClick={(e) => { deleteKolac(kolac.id); e.target.parentElement.style.display = 'none'  }} className={styles.delete}>X</div>
+                            <div onClick={() => { deleteKolac(kolac.id)}} className={styles.delete}>X</div>
                         </div>)
                     })}
                     {torteSaSlikomSelected && torteSlika.map(torta => {
@@ -163,7 +163,7 @@ export default function Database({torte, kolaci, torteSlika}) {
                                 <p>{torta.kratakOpis}</p>
                                 <p>${torta.cijena}</p>
                             </div>
-                            <div onClick={(e) => { deleteKolac(torta.id); e.target.parentElement.style.display = 'none' }} className={styles.delete}>X</div>
+                            <div onClick={() => { deleteKolac(torta.id)}} className={styles.delete}>X</div>
                         </div>)
                     })}
                 </div>
