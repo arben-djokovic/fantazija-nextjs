@@ -1,8 +1,7 @@
 import torteSaSlikom from '../../../data/torteSaSlikom'
 export default function handler(req, res){
-    res.status(200).json(torteSaSlikom)
     if(req.method === 'GET'){
-        res.status(200).json(torte)
+        res.status(200).json(torteSaSlikom)
     }
     else if(req.method === 'POST'){
         const kolac = req.body.item

@@ -3,14 +3,8 @@ import { useRouter } from 'next/router'
 import Card  from './../components/Card';
 import styles from '../styles/Home.module.scss'
 import Head from 'next/head'
-import kolaciD from '../data/kolaci';
-import torteD from '../data/torte';
-import torteSaSlikom from '../data/torteSaSlikom'
-export default function Home() {
-  
-let kolaci = kolaciD
-let torte = torteD
-let torteSlika = torteSaSlikom
+
+export default function Home({kolaci, torte, torteSlika}) {
 
   useEffect(()=>{
     localStorage.clear()
@@ -62,15 +56,15 @@ let torteSlika = torteSaSlikom
     </div>
   )
 }
-// export async function getStaticProps() {
-//   const torte = await fetch("http://localhost:3000/api/torte")
-//   const kolaci = await fetch("http://localhost:3000/api/kolaci")
-//   const torteSlika = await fetch("http://localhost:3000/api/torteSaSlikom")
-//   return {
-//     props: {
-//       torte: await torte.json(),
-//       kolaci: await kolaci.json(),
-//       torteSlika: await torteSlika.json(),
-//     },
-//   }
-// }
+export async function getStaticProps() {
+  const torte = await fetch("https://fantazija.vercel.app/api/torte")
+  const kolaci = await fetch("https://fantazija.vercel.app/api/kolaci")
+  const torteSlika = await fetch("https://fantazija.vercel.app/api/torteSaSlikom")
+  return {
+    props: {
+      torte: await torte.json(),
+      kolaci: await kolaci.json(),
+      torteSlika: await torteSlika.json(),
+    },
+  }
+}

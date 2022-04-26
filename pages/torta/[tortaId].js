@@ -10,20 +10,11 @@ import styles from '../../styles/Kolac.module.scss'
 import { Pagination, Navigation } from "swiper";
 import Head from 'next/head';
 import Image from 'next/image'
-import { useEffect, useState } from 'react';
-import torte from '../../data/torte'
-import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
-export default function Torta() {
-  let [torta, setTorta] = useState({slika: 'https://media.bakingo.com/fruit@2x_1_0.png'})
-  let router = useRouter()
-  let {tortaId} = router.query
+export default function Torta({torta}) {
+
     useEffect(()=>{
-      torte.map(tortaEl => {
-        if(tortaEl.id == tortaId){
-          setTorta(tortaEl)
-        }
-      })
         window.scrollTo(0, 0)
     },[])
   return (
@@ -65,26 +56,26 @@ export default function Torta() {
     </div>
   )
 }
-// export async function getStaticPaths() {
-//     // Call an external API endpoint to get posts
-//     const res = await fetch('http://localhost:3000/api/torte')
-//     const posts = await res.json()
+export async function getStaticPaths() {
+    // Call an external API endpoint to get posts
+    const res = await fetch('https://fantazija.vercel.app/api/torte')
+    const posts = await res.json()
   
-//     // Get the paths we want to pre-render based on posts
-//     const paths = posts.map((post) => ({
-//       params: { tortaId: post.id.toString() },
-//     }))
+    // Get the paths we want to pre-render based on posts
+    const paths = posts.map((post) => ({
+      params: { tortaId: post.id.toString() },
+    }))
   
-//     // We'll pre-render only these paths at build time.
-//     // { fallback: false } means other routes should 404.
-//     return { paths, fallback: false }
-//   }
-//   export async function getStaticProps(constext) {
-//     // params contains the post `id`.
-//     // If the route is like /posts/1, then params.id is 1
-//     const res = await fetch(`http://localhost:3000/api/torte/${constext.params.tortaId}`)
-//     const torta = await res.json()
+    // We'll pre-render only these paths at build time.
+    // { fallback: false } means other routes should 404.
+    return { paths, fallback: false }
+  }
+  export async function getStaticProps(constext) {
+    // params contains the post `id`.
+    // If the route is like /posts/1, then params.id is 1
+    const res = await fetch(`https://fantazija.vercel.app/api/torte/${constext.params.tortaId}`)
+    const torta = await res.json()
   
-//     // Pass post data to the page via props
-//     return { props: { torta } }
-//   }
+    // Pass post data to the page via props
+    return { props: { torta } }
+  }
