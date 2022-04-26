@@ -55,16 +55,16 @@ export default function Database({torte, kolaci, torteSlika}) {
                 method: 'DELETE',
             })
             .then(res => res.json())
-            .then(data => console.log(data))
-            .catch(err => console.log(err))
+            .then(data => {console.log(data);  alert('Deleted' + data.id)})
+            .catch(err => {console.log(err); alert('Error')})
         }
         else if (kolaciSelected) {
             await fetch(`https://fantazija-nextjs-arben-djokovic.vercel.app/api/kolaci/${id}`, {
                 method: 'DELETE',
             })
             .then(res => res.json())
-            .then(data => console.log(data))
-            .catch(err => console.log(err))
+            .then(data => {console.log(data);  alert('Deleted' + data.id)})
+            .catch(err => {console.log(err); alert('Error')})
 
         }
         else if (torteSaSlikomSelected) {
@@ -72,8 +72,8 @@ export default function Database({torte, kolaci, torteSlika}) {
                 method: 'DELETE',
             })
             .then(res => res.json())
-            .then(data => console.log(data))
-            .catch(err => console.log(err))
+            .then(data => {console.log(data);  alert('Deleted' + data.id)})
+            .catch(err => {console.log(err); alert('Error')})
         }
     }
     let addNew = async () => {
@@ -91,9 +91,12 @@ export default function Database({torte, kolaci, torteSlika}) {
                     'Content-Type': 'application/json',
                 },
             })
+            .then(res => res.json())
+            .then(data => {console.log(data);  alert('Added' + data.id)})
+            .catch(err => {console.log(err); alert('Error')})
         }
         else if (kolaciSelected) {
-            const response = await fetch('https://fantazija-nextjs-arben-djokovic.vercel.app/api/kolaci', {
+            await fetch('https://fantazija-nextjs-arben-djokovic.vercel.app/api/kolaci', {
                 mode: 'no-cors',
                 method: 'POST',
                 body: JSON.stringify({item: newItem}),
@@ -101,7 +104,9 @@ export default function Database({torte, kolaci, torteSlika}) {
                     'Content-Type': 'application/json',
                 },
             })
-            .catch(err => console.log(err))
+            .then(res => res.json())
+            .then(data => {console.log(data);  alert('Added' + data.id)})
+            .catch(err => {console.log(err); alert('Error')})
         }
         else if (torteSaSlikomSelected) {
             await fetch('https://fantazija-nextjs-arben-djokovic.vercel.app/api/torteSaSlikom', {
@@ -112,8 +117,8 @@ export default function Database({torte, kolaci, torteSlika}) {
                 },
             })
             .then(res => res.json())
-            .then(data => console.log(data))
-            .catch(err => console.log(err))
+            .then(data => {console.log(data);  alert('Added' + data.id)})
+            .catch(err => {console.log(err); alert('Error')})
         }
     }
     return (
