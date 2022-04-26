@@ -21,7 +21,7 @@ export default function Torte({data}) {
   )
 }
 export async function getStaticProps() {
-  const res = await fetch("https://fantazija-nextjs-arben-djokovic.vercel.app/api/torte")
+  const res = await fetch("https://fantazija-tuzi.vercel.app/api/torte")
   return {
     props: {
       data: await res.json()
