@@ -97,7 +97,6 @@ export default function Database({torte, kolaci, torteSlika}) {
         }
         else if (kolaciSelected) {
             await fetch('https://fantazija-nextjs-arben-djokovic.vercel.app/api/kolaci', {
-                mode: 'no-cors',
                 method: 'POST',
                 body: JSON.stringify({item: newItem}),
                 headers: {
