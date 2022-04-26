@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import styles from '../../styles/Database.module.scss'
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 export default function Database() {
     let router = useRouter()
@@ -19,6 +20,30 @@ export default function Database() {
     let [inputCijena, setInputCijena] = useState('')
     let [inputSlika, setInputSlika] = useState('')
 
+    let fetchTorte = async () => {
+        fetch("https://fantazija-nextjs-arben-djokovic.vercel.app/api/torte", {
+            method: 'GET'
+        })
+            .then(response => response.json())
+            .then(data => setTorte(data))
+            .catch(err => console.log(err))
+    }
+    let fetchTorteSaSlikom = async () => {
+        fetch("https://fantazija-nextjs-arben-djokovic.vercel.app/api/torteSaSlikom", {
+            method: 'GET'
+        })
+            .then(response => response.json())
+            .then(data => setTorteSaSlikom(data))
+            .catch(err => console.log(err))
+    }
+    let fetchKolaci = async () => {
+        fetch("https://fantazija-nextjs-arben-djokovic.vercel.app/api/kolaci", {
+            method: 'GET'
+        })
+            .then(response => response.json())
+            .then(data => setKolaci(data))
+            .catch(err => console.log(err))
+    }
     useEffect(() => {
         if(localStorage.getItem('username') === 'admin' && localStorage.getItem('password') === 'admin'){     
             fetchTorte()
@@ -30,21 +55,6 @@ export default function Database() {
         }
     }, [])
  
-    let fetchTorte = async () => {
-        fetch("https://fantazija-nextjs-arben-djokovic.vercel.app/api/torte")
-            .then(response => response.json())
-            .then(data => setTorte(data))
-    }
-    let fetchTorteSaSlikom = async () => {
-        fetch("https://fantazija-nextjs-arben-djokovic.vercel.app/api/torteSaSlikom")
-            .then(response => response.json())
-            .then(data => setTorteSaSlikom(data))
-    }
-    let fetchKolaci = async () => {
-        fetch("https://fantazija-nextjs-arben-djokovic.vercel.app/api/kolaci")
-            .then(response => response.json())
-            .then(data => setKolaci(data))
-    }
     const changeKategorija = (e) => {
         if (e.target.value == 1) {
             setTorteSelected(false)
@@ -172,7 +182,7 @@ export default function Database() {
             {radnjaDelete ?
                 <div className={styles.lista}>
                     {torteSelected && torte.map(torta => {
-                        return (<div key={torta.id} className={styles.kolac}>
+                        return (<Link href={`https://fantazija-nextjs-arben-djokovic.vercel.app/torte/${torta.id}`}><div key={torta.id} className={styles.kolac}>
                             <Image src={torta.slika} width={150} height={150} />
                             <div className={styles.kolacOpis}>
                                 <h3>{torta.ime}</h3>
@@ -180,10 +190,10 @@ export default function Database() {
                                 <p>${torta.cijena}</p>
                             </div>
                             <div onClick={() => { deleteKolac(torta.id) }} className={styles.delete}>X</div>
-                        </div>)
+                        </div></Link>)
                     })}
                     {kolaciSelected && kolaci.map(kolac => {
-                        return (<div key={kolac.id} className={styles.kolac}>
+                        return (<Link href={`https://fantazija-nextjs-arben-djokovic.vercel.app/kolaci/${kolac.id}`}><div key={kolac.id} className={styles.kolac}>
                             <Image src={kolac.slika} width={150} height={150} />
                             <div className={styles.kolacOpis}>
                                 <h3>{kolac.ime}</h3>
@@ -191,10 +201,10 @@ export default function Database() {
                                 <p>${kolac.cijena}</p>
                             </div>
                             <div onClick={() => { deleteKolac(kolac.id) }} className={styles.delete}>X</div>
-                        </div>)
+                        </div></Link>)
                     })}
                     {torteSaSlikomSelected && torteSaSlikom.map(torta => {
-                        return (<div key={torta.id} className={styles.kolac}>
+                        return (<Link href={`https://fantazija-nextjs-arben-djokovic.vercel.app/torta-slika/${torta.id}`}><div key={torta.id} className={styles.kolac}>
                             <Image src={torta.slika} width={150} height={150} />
                             <div className={styles.kolacOpis}>
                                 <h3>{torta.ime}</h3>
@@ -202,7 +212,7 @@ export default function Database() {
                                 <p>${torta.cijena}</p>
                             </div>
                             <div onClick={() => { deleteKolac(torta.id) }} className={styles.delete}>X</div>
-                        </div>)
+                        </div></Link>)
                     })}
                 </div>
                 :
