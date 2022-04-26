@@ -50,16 +50,13 @@ export default function Database({torte, kolaci, torteSlika}) {
             setRadnjaDelete(false)
         }
     }
-    let deleteKolac = async (id) => {
+    let deleteKolac = async (e, id) => {
         if (torteSelected) {
             const response = await fetch(`https://fantazija-nextjs-arben-djokovic.vercel.app/api/torte/${id}`, {
                 method: 'DELETE',
             })
             const data = await response.json()
             console.log(data)
-            setTimeout(() => {
-                fetchTorte()
-            }, 500);
         }
         else if (kolaciSelected) {
             const response = await fetch(`https://fantazija-nextjs-arben-djokovic.vercel.app/api/kolaci/${id}`, {
@@ -67,9 +64,6 @@ export default function Database({torte, kolaci, torteSlika}) {
             })
             const data = await response.json()
             console.log(data)
-            setTimeout(() => {
-                fetchKolaci()
-            }, 500);
         }
         else if (torteSaSlikomSelected) {
             const response = await fetch(`https://fantazija-nextjs-arben-djokovic.vercel.app/api/torteSaSlikom/${id}`, {
@@ -77,9 +71,6 @@ export default function Database({torte, kolaci, torteSlika}) {
             })
             const data = await response.json()
             console.log(data)
-            setTimeout(() => {
-                fetchTorteSaSlikom()
-            }, 500);
         }
     }
     let addNew = async () => {
@@ -101,9 +92,6 @@ export default function Database({torte, kolaci, torteSlika}) {
             })
             const data = await response.json()
             console.log(data)
-            setTimeout(() => {
-                fetchTorte()
-            }, 500);
         }
         else if (kolaciSelected) {
             const response = await fetch('https://fantazija-nextjs-arben-djokovic.vercel.app/api/kolaci', {
@@ -117,9 +105,6 @@ export default function Database({torte, kolaci, torteSlika}) {
             })
             const data = await response.json()
             console.log(data)
-            setTimeout(() => {
-                fetchKolaci()
-            }, 500);
         }
         else if (torteSaSlikomSelected) {
             const response = await fetch('https://fantazija-nextjs-arben-djokovic.vercel.app/api/torteSaSlikom', {
@@ -133,9 +118,6 @@ export default function Database({torte, kolaci, torteSlika}) {
             })
             const data = await response.json()
             console.log(data)
-            setTimeout(() => {
-                fetchTorteSaSlikom()
-            }, 500);
         }
     }
     return (
@@ -159,7 +141,7 @@ export default function Database({torte, kolaci, torteSlika}) {
                                 <p>{torta.kratakOpis}</p>
                                 <p>${torta.cijena}</p>
                             </div>
-                            <div onClick={() => { deleteKolac(torta.id) }} className={styles.delete}>X</div>
+                            <div onClick={(e) => { deleteKolac(torta.id); e.target.parentElement.style.display = 'none'  }} className={styles.delete}>X</div>
                         </div>)
                     })}
                     {kolaciSelected && kolaci.map(kolac => {
@@ -170,7 +152,7 @@ export default function Database({torte, kolaci, torteSlika}) {
                                 <p>{kolac.kratakOpis}</p>
                                 <p>${kolac.cijena}</p>
                             </div>
-                            <div onClick={() => { deleteKolac(kolac.id) }} className={styles.delete}>X</div>
+                            <div onClick={(e) => { deleteKolac(kolac.id); e.target.parentElement.style.display = 'none'  }} className={styles.delete}>X</div>
                         </div>)
                     })}
                     {torteSaSlikomSelected && torteSlika.map(torta => {
@@ -181,7 +163,7 @@ export default function Database({torte, kolaci, torteSlika}) {
                                 <p>{torta.kratakOpis}</p>
                                 <p>${torta.cijena}</p>
                             </div>
-                            <div onClick={() => { deleteKolac(torta.id) }} className={styles.delete}>X</div>
+                            <div onClick={(e) => { deleteKolac(torta.id); e.target.parentElement.style.display = 'none' }} className={styles.delete}>X</div>
                         </div>)
                     })}
                 </div>
