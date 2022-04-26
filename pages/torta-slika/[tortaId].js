@@ -77,5 +77,6 @@ export async function getStaticPaths() {
     const kolac = await res.json()
   
     // Pass post data to the page via props
-    return { props: { kolac } }
+    return { props: { kolac },
+    revalidate: 2 }
   }

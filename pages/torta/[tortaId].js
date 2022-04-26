@@ -77,5 +77,6 @@ export async function getStaticPaths() {
     const torta = await res.json()
   
     // Pass post data to the page via props
-    return { props: { torta } }
+    return { props: { torta },
+    revalidate: 2 }
   }

@@ -26,5 +26,6 @@ export async function getStaticProps() {
     props: {
       data: await res.json()
     },
+    revalidate: 2
   }
 }
