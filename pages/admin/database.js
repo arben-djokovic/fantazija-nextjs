@@ -197,7 +197,7 @@ export default function Database({torte, kolaci, torteSlika}) {
                         </div>
                         <button onClick={addNew} className={styles.submitBtn}>Add</button>
                     </div>
-                </div>}
+                </div>} 
         </div>
     )
 }
