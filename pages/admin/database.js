@@ -3,7 +3,7 @@ import styles from '../../styles/Database.module.scss'
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-export default function database() {
+export default function Database() {
     let router = useRouter()
     let [torte, setTorte] = useState([])
     let [kolaci, setKolaci] = useState([])
