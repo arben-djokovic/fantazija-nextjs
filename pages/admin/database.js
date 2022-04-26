@@ -152,7 +152,7 @@ export default function Database({torte, kolaci, torteSlika}) {
             {radnjaDelete ?
                 <div className={styles.lista}>
                     {torteSelected && torte.map(torta => {
-                        return (<Link key={torta.id} href={`https://fantazija-nextjs-arben-djokovic.vercel.app/torte/${torta.id}`}><div className={styles.kolac}>
+                        return (<div key={torta.id} className={styles.kolac}>
                             <Image src={torta.slika} width={150} height={150} />
                             <div className={styles.kolacOpis}>
                                 <h3>{torta.ime}</h3>
@@ -160,10 +160,10 @@ export default function Database({torte, kolaci, torteSlika}) {
                                 <p>${torta.cijena}</p>
                             </div>
                             <div onClick={() => { deleteKolac(torta.id) }} className={styles.delete}>X</div>
-                        </div></Link>)
+                        </div>)
                     })}
                     {kolaciSelected && kolaci.map(kolac => {
-                        return (<Link key={kolac.id} href={`https://fantazija-nextjs-arben-djokovic.vercel.app/kolaci/${kolac.id}`}><div className={styles.kolac}>
+                        return (<div key={kolac.id} className={styles.kolac}>
                             <Image src={kolac.slika} width={150} height={150} />
                             <div className={styles.kolacOpis}>
                                 <h3>{kolac.ime}</h3>
@@ -171,10 +171,10 @@ export default function Database({torte, kolaci, torteSlika}) {
                                 <p>${kolac.cijena}</p>
                             </div>
                             <div onClick={() => { deleteKolac(kolac.id) }} className={styles.delete}>X</div>
-                        </div></Link>)
+                        </div>)
                     })}
                     {torteSaSlikomSelected && torteSlika.map(torta => {
-                        return (<Link key={torta.id} href={`https://fantazija-nextjs-arben-djokovic.vercel.app/torta-slika/${torta.id}`}><div className={styles.kolac}>
+                        return (<div key={torta.id} className={styles.kolac}>
                             <Image src={torta.slika} width={150} height={150} />
                             <div className={styles.kolacOpis}>
                                 <h3>{torta.ime}</h3>
@@ -182,7 +182,7 @@ export default function Database({torte, kolaci, torteSlika}) {
                                 <p>${torta.cijena}</p>
                             </div>
                             <div onClick={() => { deleteKolac(torta.id) }} className={styles.delete}>X</div>
-                        </div></Link>)
+                        </div>)
                     })}
                 </div>
                 :
