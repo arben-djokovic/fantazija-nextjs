@@ -20,7 +20,7 @@ export default function Database() {
     let [inputSlika, setInputSlika] = useState('')
 
     useEffect(() => {
-        if(localStorage.getItem('username') === 'admin' && localStorage.getItem('password') === 'admin'){    
+        if(localStorage.getItem('username') === 'admin' && localStorage.getItem('password') === 'admin'){     
             fetchTorte()
             fetchTorteSaSlikom() 
             fetchKolaci()
