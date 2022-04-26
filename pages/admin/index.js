@@ -2,7 +2,7 @@ import {useState} from 'react'
 import styles from '../../styles/Admin.module.scss'
 import { useRouter } from 'next/router';
 
-export default function index() {
+export default function Index() {
   const router = useRouter()
   let [username, setUsername] = useState('')
   let [password, setPassword] = useState('')
