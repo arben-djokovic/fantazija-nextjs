@@ -202,9 +202,9 @@ export default function Database({torte, kolaci, torteSlika}) {
     )
 }
 export async function getStaticProps() {
-    const torte = await fetch("https://www.fantazija.tk/api/torte")
-    const kolaci = await fetch("https://www.fantazija.tk/api/kolaci")
-    const torteSlika = await fetch("https://www.fantazija.tk/api/torteSaSlikom")
+    const torte = await fetch("https://www.fantazija.tk/api/torte");
+    const kolaci = await fetch("https://www.fantazija.tk/api/kolaci");
+    const torteSlika = await fetch("https://www.fantazija.tk/api/torteSaSlikom");
     return {
       props: {
         torte: await torte.json(),
