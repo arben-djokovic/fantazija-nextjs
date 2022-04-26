@@ -182,7 +182,7 @@ export default function Database() {
             {radnjaDelete ?
                 <div className={styles.lista}>
                     {torteSelected && torte.map(torta => {
-                        return (<Link href={`https://fantazija-nextjs-arben-djokovic.vercel.app/torte/${torta.id}`}><div key={torta.id} className={styles.kolac}>
+                        return (<Link key={torta.id} href={`https://fantazija-nextjs-arben-djokovic.vercel.app/torte/${torta.id}`}><div className={styles.kolac}>
                             <Image src={torta.slika} width={150} height={150} />
                             <div className={styles.kolacOpis}>
                                 <h3>{torta.ime}</h3>
@@ -193,7 +193,7 @@ export default function Database() {
                         </div></Link>)
                     })}
                     {kolaciSelected && kolaci.map(kolac => {
-                        return (<Link href={`https://fantazija-nextjs-arben-djokovic.vercel.app/kolaci/${kolac.id}`}><div key={kolac.id} className={styles.kolac}>
+                        return (<Link key={kolac.id} href={`https://fantazija-nextjs-arben-djokovic.vercel.app/kolaci/${kolac.id}`}><div className={styles.kolac}>
                             <Image src={kolac.slika} width={150} height={150} />
                             <div className={styles.kolacOpis}>
                                 <h3>{kolac.ime}</h3>
@@ -204,7 +204,7 @@ export default function Database() {
                         </div></Link>)
                     })}
                     {torteSaSlikomSelected && torteSaSlikom.map(torta => {
-                        return (<Link href={`https://fantazija-nextjs-arben-djokovic.vercel.app/torta-slika/${torta.id}`}><div key={torta.id} className={styles.kolac}>
+                        return (<Link key={torta.id} href={`https://fantazija-nextjs-arben-djokovic.vercel.app/torta-slika/${torta.id}`}><div className={styles.kolac}>
                             <Image src={torta.slika} width={150} height={150} />
                             <div className={styles.kolacOpis}>
                                 <h3>{torta.ime}</h3>
