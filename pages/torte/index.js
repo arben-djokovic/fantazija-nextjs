@@ -1,7 +1,7 @@
 import styles from '../../styles/Kolaci.module.scss'
 import Card from '../../components/Card'
 import Head from 'next/head'
-import torte from './../../data/torte';
+import torte from '../../data/torte';
 
 export default function Torte() {
   let data = torte

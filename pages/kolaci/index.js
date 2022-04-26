@@ -22,11 +22,11 @@ export default function Kolaci() {
     </div>
   )
 }
-// export async function getStaticProps() {
-//   const res = await fetch("http://localhost:3000/api/kolaci")
-//   return {
-//     props: {
-//       data: await res.json()
-//     },
-//   }
-// }
+export async function getStaticProps() {
+  const res = await fetch("http://localhost:3000/api/kolaci")
+  return {
+    props: {
+      data: await res.json()
+    },
+  }
+}

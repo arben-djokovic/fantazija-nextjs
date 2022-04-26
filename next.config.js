@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['media.bakingo.com', 'www.espreso.co.rs'],
+    domains: ['media.bakingo.com', 'www.espreso.co.rs', 'www.linkpicture.com'],
     formats: ['image/avif', 'image/webp'],
   },
 }

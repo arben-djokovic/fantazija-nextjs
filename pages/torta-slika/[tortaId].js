@@ -11,15 +11,16 @@ import styles from '../../styles/Kolac.module.scss'
 import { Pagination, Navigation } from "swiper";
 import Head from 'next/head';
 import Image from 'next/image'
+import torteSaSlikom from '../../data/torteSaSlikom'
 import { useRouter } from 'next/router';
-import torteData from '../../data/torteSaSlikom';
 
 export default function Kolac() {
-  const router = useRouter()
-  const { tortaId } = router.query
-  let [kolac, setKolac] = useState({slika: 'https://www.espreso.co.rs/data/images/2017/12/08/15/298425_atila-sabo-cigota_ls.jpg'})
+  let [kolac, setKolac] = useState({slika: 'https://media.bakingo.com/fruit@2x_1_0.png'})
+  let router = useRouter()
+  let {tortaId} = router.query
+
     useEffect(()=>{
-      torteData.map(torta => {
+      torteSaSlikom.map(torta => {
         if(torta.id == tortaId){
           setKolac(torta)
         }

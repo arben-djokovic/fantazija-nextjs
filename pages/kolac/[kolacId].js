@@ -1,4 +1,4 @@
-import React,{ useEffect} from 'react'
+import React,{ useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
@@ -11,18 +11,17 @@ import styles from '../../styles/Kolac.module.scss'
 import { Pagination, Navigation } from "swiper";
 import Head from 'next/head';
 import Image from 'next/image'
-import { useState } from 'react';
-import kolaciData from '../../data/kolaci'
+import kolaci from '../../data/kolaci';
 import { useRouter } from 'next/router';
 
 export default function Kolac() {
-  const router = useRouter()
-  const { kolacId } = router.query
-  let [kolac, setKolac] = useState({slika: 'https://www.espreso.co.rs/data/images/2017/12/08/15/298425_atila-sabo-cigota_ls.jpg'})
+  let [kolac, setKolac] = useState({slika:'https://media.bakingo.com/fruit@2x_1_0.png'})
+  let router = useRouter()
+  let {kolacId} = router.query
     useEffect(()=>{
-      kolaciData.map(kolac => {
-        if(kolac.id == kolacId){
-          setKolac(kolac)
+      kolaci.map(kolacE => {
+        if(kolacE.id == kolacId){
+          setKolac(kolacE)
         }
       })
         window.scrollTo(0, 0)
