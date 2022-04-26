@@ -22,7 +22,7 @@ export default function Database() {
     useEffect(() => {
         if(localStorage.getItem('username') === 'admin' && localStorage.getItem('password') === 'admin'){    
             fetchTorte()
-            fetchTorteSaSlikom()
+            fetchTorteSaSlikom() 
             fetchKolaci()
         }
         else{
