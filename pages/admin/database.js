@@ -52,21 +52,21 @@ export default function Database({torte, kolaci, torteSlika}) {
     }
     let deleteKolac = async (e, id) => {
         if (torteSelected) {
-            const response = await fetch(`https://fantazija-nextjs.vercel.app/api/torte/${id}`, {
+            const response = await fetch(`https://fantazija-nextjs-arben-djokovic.vercel.app/api/torte/${id}`, {
                 method: 'DELETE',
             })
             const data = await response.json()
             console.log(data)
         }
         else if (kolaciSelected) {
-            const response = await fetch(`https://fantazija-nextjs.vercel.app/api/kolaci/${id}`, {
+            const response = await fetch(`https://fantazija-nextjs-arben-djokovic.vercel.app/api/kolaci/${id}`, {
                 method: 'DELETE',
             })
             const data = await response.json()
             console.log(data)
         }
         else if (torteSaSlikomSelected) {
-            const response = await fetch(`https://fantazija-nextjs.vercel.app/api/torteSaSlikom/${id}`, {
+            const response = await fetch(`https://fantazija-nextjs-arben-djokovic.vercel.app/api/torteSaSlikom/${id}`, {
                 method: 'DELETE',
             })
             const data = await response.json()
@@ -81,7 +81,7 @@ export default function Database({torte, kolaci, torteSlika}) {
             slika: inputSlika
         }
         if (torteSelected) {
-            const response = await fetch('https://fantazija-nextjs.vercel.app/api/torte', {
+            const response = await fetch('https://fantazija-nextjs-arben-djokovic.vercel.app/api/torte', {
                 method: 'POST',
                 body: JSON.stringify({
                     item: addItem
@@ -94,7 +94,7 @@ export default function Database({torte, kolaci, torteSlika}) {
             console.log(data)
         }
         else if (kolaciSelected) {
-            const response = await fetch('https://fantazija-nextjs.vercel.app/api/kolaci', {
+            const response = await fetch('https://fantazija-nextjs-arben-djokovic.vercel.app/api/kolaci', {
                 method: 'POST',
                 body: JSON.stringify({
                     item: addItem
@@ -107,7 +107,7 @@ export default function Database({torte, kolaci, torteSlika}) {
             console.log(data)
         }
         else if (torteSaSlikomSelected) {
-            const response = await fetch('https://fantazija-nextjs.vercel.app/api/torteSaSlikom', {
+            const response = await fetch('https://fantazija-nextjs-arben-djokovic.vercel.app/api/torteSaSlikom', {
                 method: 'POST',
                 body: JSON.stringify({
                     item: addItem
@@ -202,9 +202,9 @@ export default function Database({torte, kolaci, torteSlika}) {
     )
 }
 export async function getStaticProps() {
-    const torte = await fetch("https://fantazija-nextjs.vercel.app/api/torte")
-    const kolaci = await fetch("https://fantazija-nextjs.vercel.app/api/kolaci")
-    const torteSlika = await fetch("https://fantazija-nextjs.vercel.app/api/torteSaSlikom")
+    const torte = await fetch("https://fantazija-nextjs-arben-djokovic.vercel.app/api/torte")
+    const kolaci = await fetch("https://fantazija-nextjs-arben-djokovic.vercel.app/api/kolaci")
+    const torteSlika = await fetch("https://fantazija-nextjs-arben-djokovic.vercel.app/api/torteSaSlikom")
     return {
       props: {
         torte: await torte.json(),

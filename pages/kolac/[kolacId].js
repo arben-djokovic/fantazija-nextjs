@@ -57,7 +57,7 @@ export default function Kolac({kolac}) {
 }
 export async function getStaticPaths() {
     // Call an external API endpoint to get posts
-    const res = await fetch('https://fantazija-nextjs.vercel.app/api/kolaci')
+    const res = await fetch('https://fantazija-nextjs-arben-djokovic.vercel.app/api/kolaci')
     const posts = await res.json()
   
     // Get the paths we want to pre-render based on posts
@@ -72,7 +72,7 @@ export async function getStaticPaths() {
   export async function getStaticProps(constext) {
     // params contains the post `id`.
     // If the route is like /posts/1, then params.id is 1
-    const res = await fetch(`https://fantazija-nextjs.vercel.app/api/kolaci/${constext.params.kolacId}`)
+    const res = await fetch(`https://fantazija-nextjs-arben-djokovic.vercel.app/api/kolaci/${constext.params.kolacId}`)
     const kolac = await res.json()
   
     // Pass post data to the page via props

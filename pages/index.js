@@ -57,9 +57,9 @@ export default function Home({kolaci, torte, torteSlika}) {
   )
 }
 export async function getStaticProps() {
-  const torte = await fetch("https://fantazija-nextjs.vercel.app/api/torte")
-  const kolaci = await fetch("https://fantazija-nextjs.vercel.app/api/kolaci")
-  const torteSlika = await fetch("https://fantazija-nextjs.vercel.app/api/torteSaSlikom")
+  const torte = await fetch("https://fantazija-nextjs-arben-djokovic.vercel.app/api/torte")
+  const kolaci = await fetch("https://fantazija-nextjs-arben-djokovic.vercel.app/api/kolaci")
+  const torteSlika = await fetch("https://fantazija-nextjs-arben-djokovic.vercel.app/api/torteSaSlikom")
   return {
     props: {
       torte: await torte.json(),

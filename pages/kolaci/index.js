@@ -21,7 +21,7 @@ export default function Kolaci({data}) {
   )
 }
 export async function getStaticProps() {
-  const res = await fetch("https://fantazija-nextjs.vercel.app/api/kolaci")
+  const res = await fetch("https://fantazija-nextjs-arben-djokovic.vercel.app/api/kolaci")
   return {
     props: {
       data: await res.json()

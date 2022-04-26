@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import styles from '../../styles/Admin.module.scss'
 import { useRouter } from 'next/router';
 
@@ -17,6 +17,11 @@ export default function Index() {
       alert('Error')
     }
   }
+  useEffect(() => {
+    if(localStorage.getItem('password') == 'admin' && localStorage.getItem('username') == 'admin'){
+      router.push('/admin/database')
+    }
+  },[])
   return (
     <div className={styles.adminPage}>
       <div className={styles.formDiv}>
