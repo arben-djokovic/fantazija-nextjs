@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import styles from '../../styles/Database.module.scss'
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 
 export default function Database({torte, kolaci, torteSlika}) {
     let router = useRouter()
@@ -50,27 +49,32 @@ export default function Database({torte, kolaci, torteSlika}) {
             setRadnjaDelete(false)
         }
     }
-    let deleteKolac = async (e, id) => {
+    let deleteKolac = async (id) => {
         if (torteSelected) {
-            const response = await fetch(`https://fantazija-nextjs-arben-djokovic.vercel.app/api/torte/${id}`, {
+            await fetch(`https://fantazija-nextjs-arben-djokovic.vercel.app/api/torte/${id}`, {
                 method: 'DELETE',
             })
-            const data = await response.json()
-            console.log(data)
+            .then(res => res.json())
+            .then(data => console.log(data))
+            .catch(err => console.log(err))
         }
         else if (kolaciSelected) {
-            const response = await fetch(`https://fantazija-nextjs-arben-djokovic.vercel.app/api/kolaci/${id}`, {
+            await fetch(`https://fantazija-nextjs-arben-djokovic.vercel.app/api/kolaci/${id}`, {
                 method: 'DELETE',
             })
-            const data = await response.json()
-            console.log(data)
+            .then(res => res.json())
+            .then(data => console.log(data))
+            .catch(err => console.log(err))
+
         }
         else if (torteSaSlikomSelected) {
-            const response = await fetch(`https://fantazija-nextjs-arben-djokovic.vercel.app/api/torteSaSlikom/${id}`, {
+            await fetch(`https://fantazija-nextjs-arben-djokovic.vercel.app/api/torteSaSlikom/${id}`, {
                 method: 'DELETE',
             })
-            const data = await response.json()
-            console.log(data)
+            .then(res => res.json())
+            .then(data => console.log(data))
+            .catch(err => console.log(err))
+            console.log(this.target)
         }
     }
     let addNew = async () => {

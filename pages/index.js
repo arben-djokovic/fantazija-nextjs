@@ -7,7 +7,7 @@ import Head from 'next/head'
 export default function Home({kolaci, torte, torteSlika}) {
 
   useEffect(()=>{
-    localStorage.clear()
+    // localStorage.clear()
     window.scrollTo(0, 0)
   },[])
   const router = useRouter()
