@@ -29,7 +29,7 @@ export default function Database() {
             router.push('/admin')
         }
     }, [])
-
+ 
     let fetchTorte = async () => {
         fetch("https://fantazija-nextjs-arben-djokovic.vercel.app/api/torte")
             .then(response => response.json())
