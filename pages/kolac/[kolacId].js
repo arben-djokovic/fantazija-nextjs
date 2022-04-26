@@ -11,9 +11,20 @@ import styles from '../../styles/Kolac.module.scss'
 import { Pagination, Navigation } from "swiper";
 import Head from 'next/head';
 import Image from 'next/image'
+import { useState } from 'react';
+import kolaciData from '../../data/kolaci'
+import { useRouter } from 'next/router';
 
-export default function Kolac({kolac}) {
+export default function Kolac() {
+  const router = useRouter()
+  const { kolacId } = router.query
+  let [kolac, setKolac] = useState({slika: 'https://www.espreso.co.rs/data/images/2017/12/08/15/298425_atila-sabo-cigota_ls.jpg'})
     useEffect(()=>{
+      kolaciData.map(kolac => {
+        if(kolac.id == kolacId){
+          setKolac(kolac)
+        }
+      })
         window.scrollTo(0, 0)
     },[])
   return (
@@ -55,26 +66,26 @@ export default function Kolac({kolac}) {
     </div>
   )
 }
-export async function getStaticPaths() {
-    // Call an external API endpoint to get posts
-    const res = await fetch('https://fantazija.vercel.app/api/kolaci')
-    const posts = await res.json()
+// export async function getStaticPaths() {
+//     // Call an external API endpoint to get posts
+//     const res = await fetch('http://localhost:3000/api/kolaci')
+//     const posts = await res.json()
   
-    // Get the paths we want to pre-render based on posts
-    const paths = posts.map((post) => ({
-      params: { kolacId: post.id.toString() },
-    }))
+//     // Get the paths we want to pre-render based on posts
+//     const paths = posts.map((post) => ({
+//       params: { kolacId: post.id.toString() },
+//     }))
   
-    // We'll pre-render only these paths at build time.
-    // { fallback: false } means other routes should 404.
-    return { paths, fallback: false }
-  }
-  export async function getStaticProps(constext) {
-    // params contains the post `id`.
-    // If the route is like /posts/1, then params.id is 1
-    const res = await fetch(`https://fantazija.vercel.app/api/kolaci/${constext.params.kolacId}`)
-    const kolac = await res.json()
+//     // We'll pre-render only these paths at build time.
+//     // { fallback: false } means other routes should 404.
+//     return { paths, fallback: false }
+//   }
+//   export async function getStaticProps(constext) {
+//     // params contains the post `id`.
+//     // If the route is like /posts/1, then params.id is 1
+//     const res = await fetch(`http://localhost:3000/api/kolaci/${constext.params.kolacId}`)
+//     const kolac = await res.json()
   
-    // Pass post data to the page via props
-    return { props: { kolac } }
-  }
+//     // Pass post data to the page via props
+//     return { props: { kolac } }
+//   }
