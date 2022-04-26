@@ -4,11 +4,8 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
-export default function Database() {
+export default function Database({torte, kolaci, torteSlika}) {
     let router = useRouter()
-    let [torte, setTorte] = useState([])
-    let [kolaci, setKolaci] = useState([])
-    let [torteSaSlikom, setTorteSaSlikom] = useState([])
     let [torteSelected, setTorteSelected] = useState(false)
     let [kolaciSelected, setKolaciSelected] = useState(true)
     let [torteSaSlikomSelected, setTorteSaSlikomSelected] = useState(false)
@@ -20,35 +17,8 @@ export default function Database() {
     let [inputCijena, setInputCijena] = useState('')
     let [inputSlika, setInputSlika] = useState('')
 
-    let fetchTorte = async () => {
-        fetch("https://fantazija-nextjs-arben-djokovic.vercel.app/api/torte", {
-            method: 'GET'
-        })
-            .then(response => response.json())
-            .then(data => setTorte(data))
-            .catch(err => console.log(err))
-    }
-    let fetchTorteSaSlikom = async () => {
-        fetch("https://fantazija-nextjs-arben-djokovic.vercel.app/api/torteSaSlikom", {
-            method: 'GET'
-        })
-            .then(response => response.json())
-            .then(data => setTorteSaSlikom(data))
-            .catch(err => console.log(err))
-    }
-    let fetchKolaci = async () => {
-        fetch("https://fantazija-nextjs-arben-djokovic.vercel.app/api/kolaci", {
-            method: 'GET'
-        })
-            .then(response => response.json())
-            .then(data => setKolaci(data))
-            .catch(err => console.log(err))
-    }
     useEffect(() => {
         if(localStorage.getItem('username') === 'admin' && localStorage.getItem('password') === 'admin'){     
-            fetchTorte()
-            fetchTorteSaSlikom() 
-            fetchKolaci()
         }
         else{
             router.push('/admin')
@@ -203,7 +173,7 @@ export default function Database() {
                             <div onClick={() => { deleteKolac(kolac.id) }} className={styles.delete}>X</div>
                         </div></Link>)
                     })}
-                    {torteSaSlikomSelected && torteSaSlikom.map(torta => {
+                    {torteSaSlikomSelected && torteSlika.map(torta => {
                         return (<Link key={torta.id} href={`https://fantazija-nextjs-arben-djokovic.vercel.app/torta-slika/${torta.id}`}><div className={styles.kolac}>
                             <Image src={torta.slika} width={150} height={150} />
                             <div className={styles.kolacOpis}>
@@ -249,3 +219,15 @@ export default function Database() {
         </div>
     )
 }
+export async function getStaticProps() {
+    const torte = await fetch("https://fantazija-nextjs-arben-djokovic.vercel.app/api/torte")
+    const kolaci = await fetch("https://fantazija-nextjs-arben-djokovic.vercel.app/api/kolaci")
+    const torteSlika = await fetch("https://fantazija-nextjs-arben-djokovic.vercel.app/api/torteSaSlikom")
+    return {
+      props: {
+        torte: await torte.json(),
+        kolaci: await kolaci.json(),
+        torteSlika: await torteSlika.json(),
+      },
+    }
+  }
