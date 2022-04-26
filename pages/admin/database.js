@@ -51,7 +51,7 @@ export default function Database({torte, kolaci, torteSlika}) {
     }
     let deleteKolac = async (id) => {
         if (torteSelected) {
-            await fetch(`https://fantazija-nextjs-arben-djokovic.vercel.app/api/torte/${id}`, {
+            await fetch(`https://www.fantazija.tk/api/torte/${id}`, {
                 method: 'DELETE',
             })
             .then(res => res.json())
@@ -59,7 +59,7 @@ export default function Database({torte, kolaci, torteSlika}) {
             .catch(err => {console.log(err); alert('Error')})
         }
         else if (kolaciSelected) {
-            await fetch(`https://fantazija-nextjs-arben-djokovic.vercel.app/api/kolaci/${id}`, {
+            await fetch(`https://www.fantazija.tk/api/kolaci/${id}`, {
                 method: 'DELETE',
             })
             .then(res => res.json())
@@ -68,7 +68,7 @@ export default function Database({torte, kolaci, torteSlika}) {
 
         }
         else if (torteSaSlikomSelected) {
-            await fetch(`https://fantazija-nextjs-arben-djokovic.vercel.app/api/torteSaSlikom/${id}`, {
+            await fetch(`https://www.fantazija.tk/api/torteSaSlikom/${id}`, {
                 method: 'DELETE',
             })
             .then(res => res.json())
@@ -84,7 +84,7 @@ export default function Database({torte, kolaci, torteSlika}) {
             slika: inputSlika
         }
         if (torteSelected) {
-            await fetch('https://fantazija-nextjs-arben-djokovic.vercel.app/api/torte', {
+            await fetch('https://www.fantazija.tk/api/torte', {
                 method: 'POST',
                 body: JSON.stringify({item: newItem}),
                 headers: {
@@ -96,7 +96,7 @@ export default function Database({torte, kolaci, torteSlika}) {
             .catch(err => {console.log(err); alert('Error')})
         }
         else if (kolaciSelected) {
-            await fetch('https://fantazija-nextjs-arben-djokovic.vercel.app/api/kolaci', {
+            await fetch('https://www.fantazija.tk/api/kolaci', {
                 method: 'POST',
                 body: JSON.stringify({item: newItem}),
                 headers: {
@@ -108,7 +108,7 @@ export default function Database({torte, kolaci, torteSlika}) {
             .catch(err => {console.log(err); alert('Error')})
         }
         else if (torteSaSlikomSelected) {
-            await fetch('https://fantazija-nextjs-arben-djokovic.vercel.app/api/torteSaSlikom', {
+            await fetch('https://www.fantazija.tk/api/torteSaSlikom', {
                 method: 'POST',
                 body: JSON.stringify({item: newItem}),
                 headers: {
@@ -202,9 +202,9 @@ export default function Database({torte, kolaci, torteSlika}) {
     )
 }
 export async function getStaticProps() {
-    const torte = await fetch("https://fantazija-nextjs-arben-djokovic.vercel.app/api/torte")
-    const kolaci = await fetch("https://fantazija-nextjs-arben-djokovic.vercel.app/api/kolaci")
-    const torteSlika = await fetch("https://fantazija-nextjs-arben-djokovic.vercel.app/api/torteSaSlikom")
+    const torte = await fetch("https://www.fantazija.tk/api/torte")
+    const kolaci = await fetch("https://www.fantazija.tk/api/kolaci")
+    const torteSlika = await fetch("https://www.fantazija.tk/api/torteSaSlikom")
     return {
       props: {
         torte: await torte.json(),
