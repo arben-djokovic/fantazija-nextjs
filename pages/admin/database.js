@@ -77,7 +77,7 @@ export default function Database({torte, kolaci, torteSlika}) {
         }
     }
     let addNew = async () => {
-        let addItem = {
+        let item = {
             ime: inputIme,
             kratakOpis: inputOpis,
             cijena: inputCijena,
@@ -86,41 +86,38 @@ export default function Database({torte, kolaci, torteSlika}) {
         if (torteSelected) {
             const response = await fetch('https://fantazija-tuzi.vercel.app/api/torte', {
                 method: 'POST',
-                body: JSON.stringify({
-                    item: addItem
-                }),
+                body: JSON.stringify({item}),
                 headers: {
                     'Content-Type': 'application/json',
                 },
             })
-            const data = await response.json()
-            console.log(data)
+            .then(res => res.json())
+            .then(data => console.log(data))
+            .catch(err => console.log(err))
         }
         else if (kolaciSelected) {
             const response = await fetch('https://fantazija-tuzi.vercel.app/api/kolaci', {
                 method: 'POST',
-                body: JSON.stringify({
-                    item: addItem
-                }),
+                body: JSON.stringify({item}),
                 headers: {
                     'Content-Type': 'application/json',
                 },
             })
-            const data = await response.json()
-            console.log(data)
+            .then(res => res.json())
+            .then(data => console.log(data))
+            .catch(err => console.log(err))
         }
         else if (torteSaSlikomSelected) {
             const response = await fetch('https://fantazija-tuzi.vercel.app/api/torteSaSlikom', {
                 method: 'POST',
-                body: JSON.stringify({
-                    item: addItem
-                }),
+                body: JSON.stringify({item}),
                 headers: {
                     'Content-Type': 'application/json',
                 },
             })
-            const data = await response.json()
-            console.log(data)
+            .then(res => res.json())
+            .then(data => console.log(data))
+            .catch(err => console.log(err))
         }
     }
     return (
