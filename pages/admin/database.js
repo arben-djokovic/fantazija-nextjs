@@ -80,7 +80,7 @@ export default function Database({torte, kolaci, torteSlika}) {
     let addNew = async () => {
         let addItem = {
             ime: inputIme,
-            opis: inputOpis,
+            kratakOpis: inputOpis,
             cijena: inputCijena,
             slika: inputSlika
         }
@@ -215,5 +215,6 @@ export async function getStaticProps() {
         kolaci: await kolaci.json(),
         torteSlika: await torteSlika.json(),
       },
+      revalidate: 2
     }
   }
