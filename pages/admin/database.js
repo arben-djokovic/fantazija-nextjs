@@ -209,7 +209,7 @@ export async function getStaticProps() {
       props: {
         torte: await torte.json(),
         kolaci: await kolaci.json(),
-        torteSlika: await torteSlika.json(),
+        torteSlika: await torteSlika.json(), 
       },
       revalidate: 2
     }
